@@ -1,0 +1,155 @@
+html,body {
+    margin:0;
+color: white;
+    padding:0;
+    background-color:silver;
+    font-family: Copperplate;
+
+} 
+img{
+   width: 100%;
+   height: 400px;
+}
+
+
+
+#header { 
+   background-color:white; 
+} 
+
+
+#content_float { 
+   float:left; 
+   width:100%; 
+   background-color: white;
+} 
+#content { 
+   margin:0 300px; 
+   margin-top:-25px;
+   background-color: #e00909;
+   min-height: 500px;
+   max-height: 500px;
+} 
+#left { 
+   background-color: black;
+   border: solid #DAA520;
+   float:left; 
+   margin-left:-100%; 
+   width:220px; 
+   max-height: 500px;
+   overflow: scroll;
+} 
+#right { 
+   background-color: black;
+   border: solid #DAA520;
+   float:right; 
+   margin-left:-300px; 
+   width:220px; 
+   min-height: 500px;
+   overflow: scroll;
+} 
+#footer { 
+   width:100%; 
+   background-color:black; 
+} 
+input[type="number"]{
+   border-radius: 20px;
+   border: solid #DAA520 3px;
+   background-color:#FFEFD5;
+
+
+}
+input[type="number"]:focus{
+   border-radius: 20px;
+   border: solid silver 3px;
+   background-color: #FFEFD5;
+
+}
+label{
+   font-weight: bolder;
+}
+table{
+   width: 100%;
+   border: solid silver;
+   font-weight: bold;
+   color: #DAA520;
+}
+#overlay{
+   margin: auto;
+}
+
+#spin{
+   height: 250px;
+   width: 250px;
+   visibility: hidden;
+  display: block;
+   margin: auto;
+
+}
+#win{
+   height: 80px;
+   width: 80px;
+   visibility: visible;
+  display: block;
+   margin: auto;
+
+}
+#mask{
+   display: block;
+   margin: auto;
+}
+#form1{
+   text-align: center;
+   border-bottom: solid #DAA520;
+   font-size: 19px;
+   padding-top: 20px;
+   margin-left: 0px;
+   padding-bottom: 15px;
+
+}
+#go{
+   margin-left: 5px;
+   color: #DAA520;
+}
+#stp{
+    color: #DAA520;
+}
+select{
+   color: #DAA520;
+  background: transparent;
+  margin-left: 5px;
+
+}
+
+li.marquee1{
+   display: inline-block;
+   width:200px;
+}
+img.marquee2{
+   margin-top: 5px;
+   height: 100px;
+   width: 200px;
+}
+div.marquee{
+   width: 1000px;
+   height: 110px;
+   border: solid yellow;
+   background-color:beige;
+}
+#regles{
+   text-align: center;
+   color: white;
+}
+#regles1{
+   margin-left: 20px;
+   text-decoration: underline;
+   color: silver;
+   font-size: 20px;
+}
+#nom{
+   color: white;
+   font-family: fantasy;
+   text-align: center;
+   font-size: 40px;
+   text-decoration: underline;
+}

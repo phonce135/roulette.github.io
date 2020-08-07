@@ -1,0 +1,264 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title></title> 
+<meta charset="utf-8" /> 
+
+ 
+<link rel="stylesheet" type="text/css" href="roulette.css">
+</head> 
+ 
+<body> 
+ 
+<!-- ENTETE --> 
+<div id="header"> 
+<img src="lasvegas.gif">
+</div> 
+ 
+<!-- CONTENEUR CENTRAL --> 
+<div > 
+<div> 
+	 
+	<!-- CONTENU --> 
+	<div id="content_float"> 
+		<div id="content"> 
+		<p id="nom"> 
+			BIENVENU DANS LE MONDE<br>DU HASARD:THE ROULETTE
+		</p>
+		<img  id="spin" src="roulette_jeu.gif">
+
+
+
+			 
+		</div> 
+	</div> 
+	 
+	<div id="left"> 
+	<form name="jeu" id="form1">
+<label> Faites vos paris: </label>
+<br>
+
+<select name="choice" id='ch1'>
+    <option value="37" selected> Impair</option>
+	 <option value="38"> Pair </option>
+	<option  value="1">1</option>
+	 <option  value="2">2</option>
+	<option value="3">3</option>
+	 <option value="4">4</option>
+	<option  value="5">5</option>
+	 <option  value="6">6</option>
+	<option value="7">7</option>
+	 <option  value="8">8</option> 
+	<option value="9">9</option>
+	 <option value="10">10</option>
+	<option value="11">11</option>
+	 <option value="12">12</option>
+ 	<option value="13">13</option>
+	 <option value="14">14</option>
+	<option value="15">15</option>
+	 <option value="16">16</option>
+	<option value="17">17</option>
+	 <option value="18">18</option>
+	<option value="19">19</option>
+	 <option value="20">20</option>
+	<option value="21">21</option>
+	 <option value="22">22</option>
+	<option value="23">23</option>
+	 <option value="24">24</option>
+	<option value="25">25</option>
+	 <option  value="26">26</option>
+	<option  value="27">27</option>
+	 <option  value="28">28</option>
+	<option  value="29">29</option>
+	 <option  value="30">30</option>
+	<option  value="31">31</option>
+	 <option  value="32">32</option>
+	<option  value="33">33</option>
+	 <option  value="34">34</option>
+	<option value="35">35</option>
+	 <option value="36">36</option>
+</select>
+<br>
+    <label> Entrez votre mise s'il vous plait: </label>
+    <br>
+	<input type="number" name="mise" placeholder="En milliers" />
+	<br>
+	<input type="button" id="go" value="GO" onclick="spin1()">
+	<input type="button" id="stp" value="STOP" onclick="resultat(), stop()">	
+</form>
+<p id='regles'>
+	<span id='regles1'>COMMENT JOUER?</span>
+	<br><br>
+		Vous aimez les paris? Vous etes au bon endroit!
+	<br><br>
+		Misez une somme, et cliquez sur "GO" pour faire tourner la roue!
+	<br>
+		NB: Mise minimale:
+	<br>
+		1=1000 Fcfa. 
+	<br>
+		M=Mille.
+	<br><br>	
+		Cliquez sur "STOP" pour arreter la roue et connaitre votre sort !
+	<br><br>
+
+		Il y a 2 types de paris:
+
+	<ul>
+		<li>
+			1er pari: <br>Gagner UNE FOIS sa mise!
+			<br>
+			Selectionnez l'option Pair ou Impair. 
+			<br>
+			Si la roulette tombe respectivement sur un nombre pair ou impair, vous GAGNEZ 1e fois votre mise !!
+		</li>
+    <br>
+		<li>
+			2nd pari: <br>Gagner 35 FOIS sa mise!
+			<br>
+			Selectionnez un nombre entre 1 et 36.
+			<br>
+			Si la roulette tombe sur votre nombre choisi, vous GAGNEZ 35 fois votre mise !!
+	</ul>
+	
+		Dans tous les autres cas...Vous perdez votre mise...
+</p>
+	</div> 
+	
+	<div id="right"> 
+		<form>		
+			<img id='win' src="money.gif">
+		</form>
+	<table id="overlay">
+	<tr> 
+	<td>VOTRE FORTUNE: </td>
+	</tr>
+	<tr>
+	<td id="wallet2">100</td>
+	<td>M Fcfa</td>
+	</tr>
+
+</table>
+		
+
+	</div> 
+	 
+	<hr class="clear" /> 
+ 
+</div> 
+</div> 
+ 
+<script type="text/javascript">
+
+function spin1(){
+	var mise=parseInt(document.jeu.mise.value); //Valeur de la mise du joueur
+	var wallet1=parseInt(document.getElementById('wallet2').innerText); //Valeur du porte-monnaie du joueur
+while (mise<=0){
+		alert("Vous ne pouvez pas miser une somme negative ou nulle.");
+		document.jeu.mise.value=0;
+		break;
+	}
+	while (wallet1<=0){
+		alert("Vous n'avez plus d'argent desole. Revenez la prochaine fois");
+		document.jeu.mise.value=0;
+		break;
+	}
+	while (mise>wallet1){
+		alert("Vous n'avez pas autant d'argent...");
+		document.jeu.mise.value=0;
+		break;
+	}
+	  if(mise>0 && wallet1>0 && mise<=wallet1)
+	{
+		if(document.getElementById('spin').style.visibility='hidden')
+		{
+	 		document.getElementById('spin').style.visibility='visible';
+		}
+	}
+}
+ function resultat() 
+ {
+	var x= document.jeu.choice.options.selectedIndex; //Selection du joueur
+	var y=parseInt(document.jeu.choice.options[x].value); //Choix du joueur converti
+	var z=(Math.floor(Math.random() * 37)); //Choix de l'ordinateur
+	var mise=parseInt(document.jeu.mise.value); //Valeur de la mise du joueur
+	wallet=	parseInt(document.getElementById('wallet2').innerText); //Valeur du porte-monnaie du joueur
+	if(document.getElementById('spin').style.visibility==='visible')
+	{	
+	    
+			if (z==0)
+			{
+				alert("Le spin est tombe sur... "+z+". \nDesole! Vous avez perdu :(");	
+				alert("Votre perte est de: " +(mise));
+				document.getElementById('wallet2').innerText-=mise;
+				document.jeu.mise.value=0;
+				var newtr=document.createElement('tr');
+				var newtrTexte=document.createTextNode("ECHEC" + "  -"+ mise + " M Fcfa");
+				newtr.appendChild(newtdTexte);
+				document.getElementById('right').appendChild(newtr);
+				
+			}
+			else if ((y===38 && z%2==0) || (y===37 && z%2==1))
+			{
+				alert("Le spin est tombe sur... "+z+ ".  \nFelicitations !! Vous avez gagne !! :)");
+				alert("Votre gain est de: " +(mise));
+				wallet+=mise;
+				document.getElementById('wallet2').innerText=wallet;
+				document.jeu.mise.value=0;
+				var newtd=document.createElement('tr');
+				var newtdTexte=document.createTextNode("VICTOIRE" + "  +" +mise + " M Fcfa");
+				newtd.appendChild(newtdTexte);
+				document.getElementById('right').appendChild(newtd);
+				document.getElementById('win').style.visibility='visible';
+
+
+			}
+		
+			else if(y===z)
+			{
+				alert("Le spin est tombe sur... "+z+ ".  \nFelicitations !! Vous avez gagne !! :)");
+				alert("Votre gain est de: " +(mise*35));
+				wallet+=(mise*35);
+				document.getElementById('wallet2').innerText=wallet;
+				document.jeu.mise.value=0;
+				var newtd=document.createElement('tr');
+				var newtdTexte=document.createTextNode("VICTOIRE"+ "  +"+(mise*35) + " M Fcfa");
+				newtd.appendChild(newtdTexte);
+				document.getElementById('right').appendChild(newtd);
+			}
+			else
+			{
+				alert("Le spin est tombe sur... "+z+". \nDesole! Vous avez perdu:(");	
+				alert("Votre perte est de: " +(mise*1));
+				document.getElementById('wallet2').innerText-=mise;
+				document.jeu.mise.value=0;
+				var newtd=document.createElement('tr');
+				var newtdTexte=document.createTextNode("ECHEC" + "  -"+ mise + " M Fcfa");
+				newtd.appendChild(newtdTexte);
+				document.getElementById('right').appendChild(newtd);
+	
+			}
+	
+	}
+}
+
+
+function stop(){
+	if(document.getElementById('spin').style.visibility='visible')
+	{
+ 		document.getElementById('spin').style.visibility='hidden';
+	}
+
+}
+
+</script>
+<div id="footer"> 
+		<marquee scrolldelay="100" scrollamount='15'>
+   <li class="marquee1"><img class="marquee2" src="vip.png"></li>
+
+
+		</marquee>
+</div> 
+ 
+</body> 
+</html>
